@@ -1,0 +1,41 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.wrapper > div {
+  margin: 0 auto;
+  padding: 1em;
+  width: 66%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+}
+
+thead{
+  color: #2f5e70;
+  font-size: 10px;
+  text-align: left;
+}
+
+thead:hover{
+  color: #2f5e70;
+  font-size: 10px;
+  text-align: left;
+}
+
+tbody > tr:nth-child(odd){
+  background-color: #eee;
+}
+
+tbody > tr:hover{
+  color: white;
+  background-color: #2f5e70;
+}
+
+td {
+  padding-right: 25px;
+}
