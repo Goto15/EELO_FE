@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'http://96.126.124.136:3000/';
 const players = [];
 
 function sortRounds(matches) {
@@ -73,10 +73,7 @@ function renderPlayer(playerInfo) {
 function getPlayersID(id) {
   return fetch(`${baseURL}players/${id}`)
     .then(resp => resp.json())
-    .then(json => {
-      console.log(json);
-      renderPlayer(json);
-    });
+    .then(json => renderPlayer(json));
 }
 
 function renderPlayerTable() {
