@@ -13,20 +13,22 @@
   </head>
   <body>
     <div class='wrapper'>
-      <div class='sidebar'>
-        <header>
-          <h2>ECG Elo Project</h2>
-        </header>
-      </div>
+      <header>
+        <h2>ECG Elo Project</h2>
+        <p>Shamelessly inspired by <a href='http://www.mtgeloproject.net/leaders.php'>MTG Elo Project</a>, but for Epic Card Game. 
+          Ratings start at <a href ='https://en.wikipedia.org/wiki/Elo_rating_system'>1600 and the k-value is set (for now) at 36.</a> As more matches are played the k-value will adjust for those who have played more matches. 
+          Current dataset is all Monthly Tournaments since the start of public release. I'm still trying to figure out the best way to add private beta tournaments.</p>
+          <p><span class='emphasis'>Click on player records to show their tournament history.</span></p>
+      </header>
       <div class='content'>
         <table id='players'>
           <thead>
             <tr>
               <th>rank</th>
               <th>ign</th>
-              <th>elo</th>
+              <th class='right-border'>elo</th>
               <th>record</th>
-              <th>%</th>
+              <th class='right-border'>%</th>
               <th>tourneys</th>
               <th>wins</th>
               <th>top8s</th>
@@ -35,6 +37,14 @@
           <tbody>
           </tbody>
         </table>
+        <br>
+        <hr>
+        <br>
+        <div id='player-info'>
+          <h3><div id='player-name'>no selection</div></h3>
+          <div id='tournament-tables'>
+          </div>
+        </div>
       </div>
     </div>
     <script src="src/index.js"></script>

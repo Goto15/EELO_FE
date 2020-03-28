@@ -1,11 +1,18 @@
+a:hover{
+  text-decoration: none;
+}
+
+a:visited {
+  color: #2f5e70;
+  text-align: left;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.wrapper > div {
-  margin: 0 auto;
-  padding: 1em;
-  width: 66%;
+h5{
+  color: #2f5e70;
 }
 
 table {
@@ -13,6 +20,19 @@ table {
   border-spacing: 0;
   text-align: left;
   width: 100%;
+}
+
+tbody > tr:nth-child(odd){
+  background-color: #eee;
+}
+
+tbody > tr:hover{
+  color: white;
+  background-color: #2f5e708e;
+}
+
+td, th {
+  padding-left: 10px;
 }
 
 thead{
@@ -27,15 +47,20 @@ thead:hover{
   text-align: left;
 }
 
-tbody > tr:nth-child(odd){
-  background-color: #eee;
+.emphasis {
+  color: #2f5e70;
+  font-style: italic;
 }
 
-tbody > tr:hover{
-  color: white;
-  background-color: #2f5e70;
+.right-border{
+  border-width: 0px 1px 0px 0px;
+  border-style: solid;
+  border-color: black;
 }
 
-td {
-  padding-right: 25px;
+.wrapper {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: justify;
+  width: 66%;
 }
