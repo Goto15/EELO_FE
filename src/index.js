@@ -1,16 +1,16 @@
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'https://epicelodata.com:3000/';
 const players = [];
 
 function sortRounds(matches) {
   const swissRounds = matches
-    .filter(function(match) {
+    .filter(function (match) {
       return !isNaN(match.round);
     })
-    .sort(function(a, b) {
+    .sort(function (a, b) {
       return parseInt(a.round) - parseInt(b.round);
     });
 
-  const top8 = matches.filter(function(match) {
+  const top8 = matches.filter(function (match) {
     return isNaN(match.round);
   });
 
@@ -25,7 +25,7 @@ function renderPlayer(playerInfo) {
   playerTournaments.innerHTML = '';
 
   const tournaments = Object.keys(playerInfo.matches);
-  tournaments.forEach(tournament => {
+  tournaments.forEach((tournament) => {
     const tournamentName = document.createElement('h5');
     tournamentName.innerText = tournament;
     playerTournaments.append(tournamentName);
@@ -49,7 +49,7 @@ function renderPlayer(playerInfo) {
     deltaTH.innerText = 'eloDelta';
     tournamentTHead.appendChild(deltaTH);
 
-    sortRounds(playerInfo.matches[tournament]).forEach(match => {
+    sortRounds(playerInfo.matches[tournament]).forEach((match) => {
       const matchRow = tournamentTable.insertRow();
 
       const roundTD = matchRow.insertCell(0);
@@ -72,8 +72,8 @@ function renderPlayer(playerInfo) {
 
 function getPlayersID(id) {
   return fetch(`${baseURL}players/${id}`)
-    .then(resp => resp.json())
-    .then(json => renderPlayer(json));
+    .then((resp) => resp.json())
+    .then((json) => renderPlayer(json));
 }
 
 function renderPlayerTable() {
@@ -97,15 +97,11 @@ function renderPlayerTable() {
     elo.appendChild(document.createTextNode(player.elo));
 
     const record = playerRow.insertCell(3);
-    record.appendChild(
-      document.createTextNode(`${player.wins}-${player.losses}`)
-    );
+    record.appendChild(document.createTextNode(`${player.wins}-${player.losses}`));
 
     const winPercent = playerRow.insertCell(4);
     winPercent.className = 'right-border';
-    winPercent.appendChild(
-      document.createTextNode(`${player.win_percentage}%`)
-    );
+    winPercent.appendChild(document.createTextNode(`${player.win_percentage}%`));
 
     const tourneys = playerRow.insertCell(5);
     tourneys.appendChild(document.createTextNode(player.num_tournaments));
@@ -125,10 +121,10 @@ function renderPlayerTable() {
 }
 
 function getPlayers() {
-  fetch(`${baseURL}/players`)
-    .then(resp => resp.json())
-    .then(json => {
-      json.forEach(e => {
+  fetch(`${baseURL}players`)
+    .then((resp) => resp.json())
+    .then((json) => {
+      json.forEach((e) => {
         players.push(e);
       });
       // Reverse sort players by Elo

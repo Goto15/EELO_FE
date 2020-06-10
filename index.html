@@ -2,23 +2,95 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ECG Elo Project</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+    <style>
+      a {
+        color: #2f5e70;
+      }
+
+      a:hover{
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: #2f5e70;
+        text-align: left;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      h5{
+        color: #2f5e70;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        text-align: left;
+        width: 100%;
+      }
+
+      tbody > tr:nth-child(odd){
+        background-color: #eee;
+      }
+
+      tbody > tr:hover{
+        color: white;
+        background-color: #2f5e708e;
+      }
+
+      td, th {
+        padding-left: 10px;
+      }
+
+      thead{
+        color: #2f5e70;
+        font-size: 10px;
+        text-align: left;
+      }
+
+      thead:hover{
+        color: #2f5e70;
+        font-size: 10px;
+        text-align: left;
+      }
+
+      .emphasis {
+        color: #2f5e70;
+        font-style: italic;
+      }
+
+      .right-border{
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: black;
+      }
+
+      .wrapper {
+        margin: 0 auto;
+        padding: 1em;
+        text-align: justify;
+        width: 66%;
+      }
+    </style>
   </head>
   <body>
     <div class='wrapper'>
       <header>
         <h2>ECG Elo Project</h2>
-        <p>Shamelessly inspired by <a href='http://www.mtgeloproject.net/leaders.php'>MTG Elo Project</a>, but for Epic Card Game. 
-          Ratings start at <a href ='https://en.wikipedia.org/wiki/Elo_rating_system'>1600 and the k-value is set (for now) at 36.</a> As more matches are played the k-value will adjust for those who have played more matches. 
+        <p>Shamelessly inspired by <a href='http://www.mtgeloproject.net/leaders.php' target="_blank" rel="noopener noreferer">MTG Elo Project</a>, but for Epic Card Game. 
+          Ratings start at <a href ='https://en.wikipedia.org/wiki/Elo_rating_system' target="_blank" rel="noopener noreferer">1600 and the k-value is set (for now) at 36.</a> As more matches are played the k-value will adjust for those who have played more matches. 
           Current dataset is all Monthly Tournaments since the start of public release. I'm still trying to figure out the best way to add private beta tournaments.</p>
-          <p>If you think there is a problem, or a result is misreported please Tweet at me at: <a href="https://twitter.com/BeneBeatsB">@BeneBeatsB</a></p>
+          <p>If you think there is a problem, or a result is misreported please Tweet at me <a href="https://twitter.com/BeneBeatsB" target="_blank" rel="noopener noreferer">@BeneBeatsB</a></p>
           <p><span class='emphasis'>Click on player records to show their tournament history.</span></p>
       </header>
       <div class='content'>
