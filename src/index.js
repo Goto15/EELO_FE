@@ -1,4 +1,4 @@
-const baseURL = 'https://epicelodata.com:3000/';
+const baseURL = 'http://localhost:3000/';
 const players = [];
 
 function sortRounds(matches) {
@@ -31,6 +31,7 @@ function renderPlayer(playerInfo) {
     playerTournaments.append(tournamentName);
 
     const tournamentTable = document.createElement('table');
+    tournamentTable.classList.add('player-table');
     const tournamentTHead = document.createElement('thead');
 
     const roundTH = document.createElement('th');
@@ -71,9 +72,12 @@ function renderPlayer(playerInfo) {
 }
 
 function getPlayersID(id) {
-  return fetch(`${baseURL}players/${id}`)
+  return fetch(`${baseURL}players/${id}/matches`)
     .then((resp) => resp.json())
-    .then((json) => renderPlayer(json));
+    .then((json) => {
+      console.log(json);
+      renderPlayer(json);
+    });
 }
 
 function renderPlayerTable() {
@@ -104,12 +108,15 @@ function renderPlayerTable() {
     winPercent.appendChild(document.createTextNode(`${player.win_percentage}%`));
 
     const tourneys = playerRow.insertCell(5);
+    tourneys.className = 'extra-info';
     tourneys.appendChild(document.createTextNode(player.num_tournaments));
 
     const tourneyWins = playerRow.insertCell(6);
+    tourneyWins.className = 'extra-info';
     tourneyWins.appendChild(document.createTextNode(player.tournament_wins));
 
     const top8s = playerRow.insertCell(7);
+    top8s.className = 'extra-info';
     top8s.appendChild(document.createTextNode(player.top_8s));
 
     playerRow.addEventListener('click', () => {
