@@ -75,7 +75,6 @@ function getPlayersID(id) {
   return fetch(`${baseURL}players/${id}/matches`)
     .then((resp) => resp.json())
     .then((json) => {
-      console.log(json);
       renderPlayer(json);
     });
 }

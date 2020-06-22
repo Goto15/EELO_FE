@@ -19,6 +19,10 @@ h5{
   color: #2f5e70;
 }
 
+p {
+  font-size: 16px;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -32,11 +36,13 @@ tbody > tr:nth-child(odd){
   
 tbody > tr:hover{
   color: white;
+  cursor: pointer;
   background-color: #2f5e708e;
 }
 
 td, th {
-  padding-left: 1em;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 24%;
 }
   
@@ -46,14 +52,14 @@ thead{
   text-align: left;
 }
 
-thead:hover{
-  color: #2f5e70;
-  font-size: 1em;
-  text-align: left;
-}
-
 .emphasis {
   color: #2f5e70;
+  font-style: italic;
+}
+
+.small-emphasis {
+  color: #2f5e70;
+  font-size: .85em;
   font-style: italic;
 }
 
@@ -71,12 +77,18 @@ thead:hover{
   }
   
   .wrapper {
-    padding: 2%;
-    width: 96%;
+    padding-left: 7%;
+    padding-right: 7%;
+    width: 86%;
   }
 }
 
-@media only screen and (min-width: 769px) {    
+@media only screen and (min-width: 769px) {
+  .right-border {
+    border-right: 1px solid;
+    padding-right: 10px;
+  }
+
   .wrapper {
     margin: 0 auto;
     width: 66%;
