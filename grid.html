@@ -9,9 +9,9 @@
     <title>ECG Elo Project</title>
     <meta name="description" content="Competitive rankings based on Epic Card Game tournament results.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="src/index.js" as="script">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <!-- <style>
+    <link rel="preload" href="src/grid.js" as="script">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+    <style>
       a {
         color: #2f5e70;
       }
@@ -90,7 +90,7 @@
           width: 66%;
         }
       }
-    </style> -->
+    </style>
   </head>
   <body>
     <div class='wrapper'>
@@ -100,39 +100,15 @@
           Ratings start at <a href ='https://en.wikipedia.org/wiki/Elo_rating_system' target="_blank" rel="noopener noreferer">1600 and the k-value is set (for now) at 36.</a> As more matches are played the k-value will adjust for those who have played more matches. 
           Current dataset is all Monthly Tournaments since the start of public release. I'm still trying to figure out the best way to add private beta tournaments.</p>
         <p><span class='small-emphasis'>Click on player records to show their tournament history.</span></p>
+        <p><a href="index.html">List View</a></p>
       </header>
-      <div class='content'>
-        <table id='players'>
-          <thead>
-            <tr>
-              <th>rank</th>
-              <th>ign</th>
-              <th class='right-border'>elo</th>
-              <th>record</th>
-              <th class='right-border'>%</th>
-              <th class='extra-info'>tourneys</th>
-              <th class='extra-info'>wins</th>
-              <th class='extra-info'>top8s</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-        <br>
-        <div id='pagination'></div>
-        <br>
-        <hr>
-        <br>
-        <div id='player-info'>
-          <h3><div id='player-name'>no selection</div></h3>
-          <div id='tournament-tables'>
-          </div>
-        </div>
-      </div>
+      <body>
+        
+      </body>
       <hr>
       <br>
       <p>If you think there is a problem, or a result is misreported please Tweet at me <a href="https://twitter.com/BeneBeatsB" target="_blank" rel="noopener noreferer">@BeneBeatsB</a></p>
     </div>
-    <script src="src/index.js" defer></script>
+    <script src="src/grid.js" defer></script>
   </body>
 </html>

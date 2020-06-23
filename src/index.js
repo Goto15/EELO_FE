@@ -1,5 +1,6 @@
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'https://epicelodata.com:3000/';
 const players = [];
+let pageNum = 1;
 
 function sortRounds(matches) {
   const swissRounds = matches
@@ -15,6 +16,39 @@ function sortRounds(matches) {
   });
 
   return swissRounds.concat(top8);
+}
+
+function changePage(num) {
+  pageNum = num;
+  renderPlayerTable();
+
+  //Highlight correct button.
+  let numPages = event.target.parentElement.children.length;
+  for(let i = 0; i < numPages; i += 1){
+    //Must subtract 1 since arrays are 0 indexed but humans are 1 indexed.
+    if( i === parseInt(event.target.innerHTML) - 1) {
+      event.target.classList.add('selected-page');
+    } else {
+      event.target.parentElement.children[i].classList.remove('selected-page');
+    }
+  }
+}
+
+function createPages(count) {
+  const pagination = document.getElementById('pagination');
+
+  for (let i = 1; i <= Math.ceil(count / 20); i += 1) {
+    const page = document.createElement('button');
+
+    if (i === pageNum) page.className = 'selected-page';
+
+    page.innerText = i;
+
+    page.addEventListener('click', () => {
+      changePage(i);
+    });
+    pagination.appendChild(page);
+  }
 }
 
 function renderPlayer(playerInfo) {
@@ -53,17 +87,10 @@ function renderPlayer(playerInfo) {
     sortRounds(playerInfo.matches[tournament]).forEach((match) => {
       const matchRow = tournamentTable.insertRow();
 
-      const roundTD = matchRow.insertCell(0);
-      roundTD.appendChild(document.createTextNode(match.round));
-
-      const oppTD = matchRow.insertCell(1);
-      oppTD.appendChild(document.createTextNode(match.opponent));
-
-      const resultTD = matchRow.insertCell(2);
-      resultTD.appendChild(document.createTextNode(match.result));
-
-      const eloTD = matchRow.insertCell(3);
-      eloTD.appendChild(document.createTextNode(match.elo_delta));
+      matchRow.insertCell(0).appendChild(document.createTextNode(match.round));
+      matchRow.insertCell(1).appendChild(document.createTextNode(match.opponent));
+      matchRow.insertCell(2).appendChild(document.createTextNode(match.result));
+      matchRow.insertCell(3).appendChild(document.createTextNode(match.elo_delta));
     });
 
     tournamentTable.appendChild(tournamentTHead);
@@ -84,7 +111,12 @@ function renderPlayerTable() {
     .getElementById('players')
     .getElementsByTagName('tbody')[0];
 
-  for (let i = 0; i < players.length; i += 1) {
+  rankingTable.innerHTML = '';
+
+  numberPlayers =
+    20 * pageNum > players.length ? players.length : 20 * pageNum;
+
+  for (let i = 20 * pageNum - 20; i < numberPlayers; i += 1) {
     const player = players[i];
     const playerRow = rankingTable.insertRow();
 
@@ -136,6 +168,7 @@ function getPlayers() {
       // Reverse sort players by Elo
       players.sort((a, b) => parseInt(b.elo) - parseInt(a.elo));
       renderPlayerTable();
+      createPages(players.length);
     });
 }
 
