@@ -1,6 +1,7 @@
-const baseURL = 'https://epicelodata.com:3000/';
+const baseURL = 'http://localhost:3000/';
 const players = [];
 let pageNum = 1;
+const pageLength = 24;
 
 function sortRounds(matches) {
   const swissRounds = matches
@@ -24,9 +25,9 @@ function changePage(num) {
 
   //Highlight correct button.
   let numPages = event.target.parentElement.children.length;
-  for(let i = 0; i < numPages; i += 1){
+  for (let i = 0; i < numPages; i += 1) {
     //Must subtract 1 since arrays are 0 indexed but humans are 1 indexed.
-    if( i === parseInt(event.target.innerHTML) - 1) {
+    if (i === parseInt(event.target.innerHTML) - 1) {
       event.target.classList.add('selected-page');
     } else {
       event.target.parentElement.children[i].classList.remove('selected-page');
@@ -37,7 +38,7 @@ function changePage(num) {
 function createPages(count) {
   const pagination = document.getElementById('pagination');
 
-  for (let i = 1; i <= Math.ceil(count / 20); i += 1) {
+  for (let i = 1; i <= Math.ceil(count / pageLength); i += 1) {
     const page = document.createElement('button');
 
     if (i === pageNum) page.className = 'selected-page';
@@ -114,9 +115,9 @@ function renderPlayerTable() {
   rankingTable.innerHTML = '';
 
   numberPlayers =
-    20 * pageNum > players.length ? players.length : 20 * pageNum;
+    pageLength * pageNum > players.length ? players.length : pageLength * pageNum;
 
-  for (let i = 20 * pageNum - 20; i < numberPlayers; i += 1) {
+  for (let i = pageLength * pageNum - pageLength; i < numberPlayers; i += 1) {
     const player = players[i];
     const playerRow = rankingTable.insertRow();
 
