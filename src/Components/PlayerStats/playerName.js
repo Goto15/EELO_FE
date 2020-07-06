@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PlayerName({name}){
-  return <h2>{name}</h2>
+  return <div style={{textAlign: 'center'}}><h1>{name}</h1></div>
 }
 
 export default PlayerName;

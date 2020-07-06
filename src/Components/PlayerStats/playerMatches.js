@@ -15,7 +15,7 @@ function PlayerMatches({ selectedPlayer }){
 
   return (
       <Fragment>
-        <PlayerName name={selectedPlayer ? selectedPlayer.ign : 'No Selection'}></PlayerName>
+        <PlayerName name={selectedPlayer ? selectedPlayer.ign : 'No Selection'} />
         {playerMatches ? 
           (Object.keys(playerMatches.matches).map(tournament => {
             return (
